@@ -85,3 +85,19 @@ function kn() {
                 set-ns $1;
         fi
 }
+
+# Shortcut to remove cluster from context
+function kxr() {
+        idx=1;
+        for c in $(kubectx); do
+		if [[ "$idx" = "$1" ]]; then
+			yq eval -i "del(.clusters.[] | select(.name == \"$c\"))" ~/.kube/config
+                        yq eval -i "del(.contexts.[] | select(.name == \"$c\"))" ~/.kube/config
+                        yq eval -i "del(.users.[] | select(.name == \"$c\"))" ~/.kube/config
+                        echo "Removed ${YELLOW}$c${NC} from kube-context";
+			break;
+		else
+			((idx=idx+1));
+		fi
+	done;
+}

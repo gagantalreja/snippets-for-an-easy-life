@@ -131,7 +131,7 @@ function lf() {
 
 # port forwarding
 # usage : pf <namespace> <service-name> 8080:8080
-function pkpf() {
+function pf() {
   pod=`pod $1 $2`
   if [[ -z "$pod" ]]
   then

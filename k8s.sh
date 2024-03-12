@@ -38,8 +38,6 @@ function set-ctx() {
 
 function get-ns() {
         curr_ns=`kubectl config view --minify -o jsonpath='{..namespace}'`
-        YELLOW='\033[0;33m';
-        NC='\033[0m' # No Color
         idx=1;
 
 

@@ -4,7 +4,7 @@ YELLOW='\033[0;33m';
 NC='\033[0m' # No Color
 
 ## ls -lart shortcut
-alias ll='ls -lart'
+alias ll='ls -lart --color=always'
 
 ## git
 alias cb='echo "$(git branch | grep "*" | tr -d "*" | tr -d " ")"' # get current branch

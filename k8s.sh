@@ -137,3 +137,17 @@ function pf() {
                 kubectl -n $1 port-forward $pod $3
         fi
 }
+
+# If you have multiple kots versions installed, using the following function
+# you can point to a version you want to use. Just run kotsv <version-number>
+
+function kotsv() {
+        if [[ $(ll /usr/local/bin/kubectl-kots-v* | grep -c $1) == "0" ]]; then
+                echo "kots version v$1 not found in /usr/local/bin/";
+
+        else
+                sudo rm /usr/local/bin/kubectl-kots
+                sudo ln -s /usr/local/bin/kubectl-kots-v$1 /usr/local/bin/kubectl-kots
+                echo "Kots version reset. New version is: ${GREEN}$(kubectl kots version)${NC}"
+        fi
+}

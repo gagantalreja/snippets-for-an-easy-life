@@ -18,5 +18,5 @@ python3 -m pip install -r ./requirements.txt
 - Run the following command to run the script and get output in a csv file
 
 ```shell
-python3 /Users/talreja/Desktop/repos/ld-terraform/zmisc/github.py > ./data/pulls.csv
+python3 ./github.py > ./data/pulls.csv
 ```

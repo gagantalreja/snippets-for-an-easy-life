@@ -1,0 +1,8 @@
+{
+  "repos": [
+    "<org-or-owner>/<repo-name>"
+  ],
+  "raised_by": [
+    "<github-username>"
+  ]
+}

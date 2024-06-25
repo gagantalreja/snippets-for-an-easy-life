@@ -12,11 +12,15 @@ alias sb='echo "Switching to branch ${GREEN}${1}${NC}" && git checkout $1'      
 alias nb='echo "Creating branch ${GREEN}$1${NC} and switching to it" &&  git checkout -b $1' # create a new branch and switch to it
 alias lb='git branch'                                                                        # list all branches in the repo
 
-alias gadd='git add $1'
+alias gadd='git add $1'             # git add
 alias gpull='git pull origin $(cb)' # git pull from remote for current branch
 alias gpush='git push origin $(cb)' # git push to remote for current branch
+
 alias gcommit='git commit -m $1'    # git commit with message
 alias gamend='git commit --amend'   # git amend previous commit
+
+alias gmerge='git merge $1'         # git merge
+alias gcherry='git cherry-pick $1'  # git cherry-pick commit
 
 ## terraform
 alias tf=terraform

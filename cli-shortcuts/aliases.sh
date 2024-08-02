@@ -7,11 +7,11 @@ NC='\033[0m' # No Color
 alias ll='ls -lart --color=always'
 
 ## git
-alias cb='echo "$(git branch | grep "*" | tr -d "*" | xargs)"'                                                                                # get current branch
-alias sb='echo "Switching to branch ${GREEN}${1}${NC}" && git checkout $1'                                                                    # switch to a branch
-alias nb='echo "Creating branch ${GREEN}$1${NC} and switching to it" &&  git checkout -b $1'                                                  # create a new branch and switch to it
-alias lb='git branch'                                                                                                                         # list all branches in the repo
-alias pb='echo "Switching to previous branch ${PREVIOUS_BRANCH}" && TEMP=$(cb) && git checkout ${PREVIOUS_BRANCH} && PREVIOUS_BRANCH=${TEMP}' # switching to previous branch
+alias cb='echo "$(git branch | grep "*" | tr -d "*" | xargs)"'                      # get current branch
+alias sb='PREVIOUS_BRANCH="$(cb)" && git checkout $1'                               # switch to a branch
+alias nb='PREVIOUS_BRANCH=$(cb) && git checkout -b $1'                              # create a new branch and switch to it
+alias lb='git branch'                                                               # list all branches in the repo
+alias pb='TEMP=$(cb) && git checkout ${PREVIOUS_BRANCH} && PREVIOUS_BRANCH=${TEMP}' # switching to previous branch
 
 alias gadd='git add $1'             # git add
 alias gpull='git pull origin $(cb)' # git pull from remote for current branch

@@ -81,19 +81,9 @@ function kn() {
   fi
 }
 
-function kgp() {
+function kg() {
   args=("${@}")
-  k get pods "${args[@]}"
-}
-
-function kgl() {
-  args=("${@}")
-  k get "${args[@]}" -o json | jq -r '.items | map({key: .metadata.name, value: (.metadata.labels | to_entries | map("\(.key) = \(.value)"))}) | from_entries'
-}
-
-function kga() {
-  args=("${@}")
-  k get "${args[@]}" -o json | jq -r '.items | map({key: .metadata.name, value: (.metadata.annotations | to_entries | map("\(.key) = \(.value)"))}) | from_entries'
+  k get "${args[@]}"
 }
 
 # Shortcut to remove cluster from context

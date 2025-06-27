@@ -86,6 +86,11 @@ function kg() {
   k get "${args[@]}"
 }
 
+function kpf() {
+  args=("${@}")
+  k port-forward "${args[@]}"
+}
+
 # Shortcut to remove cluster from context
 function kxr() {
   idx=1

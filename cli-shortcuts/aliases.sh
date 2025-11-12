@@ -33,4 +33,8 @@ alias tfdir='touch main.tf data.tf variables.tf locals.tf version.tf output.tf'
 alias random="python3 -c 'import string; import random; import sys; print(\"\".join(random.choices(string.ascii_uppercase + string.ascii_lowercase + string.digits, k=int(sys.argv[1]))))'"
 
 # variables
-export PREVIOUS_BRANCH=$(cb) # setting previous branch as current for reference on start
+if [[ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" == "true" ]]; then
+  export PREVIOUS_BRANCH=$(cb) # setting previous branch as current for reference on start
+else
+  export PREVIOUS_BRANCH="master"
+fi

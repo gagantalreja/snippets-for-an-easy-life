@@ -4,7 +4,15 @@ YELLOW='\033[0;33m'
 NC='\033[0m' # No Color
 
 ## kubernetes
+# get zsh complete kubectl
+source <(kubectl completion zsh)
+alias kubectl=kubecolor
 alias k=kubectl
+
+# make completion work with kubecolor
+compdef kubecolor=kubectl
+compdef k=kubecolor
+
 
 # get current kubectl context with index numbers. If a context name is also provided as an argument, switch to that context
 function get-ctx() {

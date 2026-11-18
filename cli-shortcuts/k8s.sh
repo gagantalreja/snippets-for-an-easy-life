@@ -128,3 +128,12 @@ function kotsv() {
     echo "Kots version reset. New version is: ${GREEN}$(kubectl kots version)${NC}"
   fi
 }
+
+function kotsadm() {
+  kubectl kots admin-console -n replicated
+}
+
+function enable_crossplane() {
+  local value=$1
+  kubectl kots set config livedesign -n replicated --key enable_crossplane --value "$1" --current --deploy
+}
